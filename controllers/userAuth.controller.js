@@ -1,7 +1,7 @@
 const _ = require("lodash");
 const UserAuth = require("../models/userAuth.model");
 const mongoose = require("mongoose");
-const bcrypt = require("bcryptjs");
+const bcrypt = require("bcrypt");
 // import the jsonWebToken package to use tokens
 const jwt = require("jsonwebtoken");
 
