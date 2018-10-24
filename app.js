@@ -1,3 +1,6 @@
+// "start": "node ./bin/www"
+// paste to package.json file
+
 const createError = require("http-errors");
 const express = require("express");
 const bodyParser = require("body-parser");
