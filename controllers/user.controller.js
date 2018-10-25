@@ -17,6 +17,10 @@ exports.user_create = (req, res, next) => {
     })
     .catch(err => console.log(err));
 
+  res.header(
+    "Access-Control-Allow-Headers",
+    "x-requested-with, x-requested-by"
+  );
   res.status(201).json({
     message: "Handling POST request to users",
     createdUser: user
