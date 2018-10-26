@@ -12,7 +12,7 @@ const logger = require("morgan");
 const usersRouter = require("./routes/user");
 const userAuthRoutes = require("./routes/userAuth");
 
-// const cors = require("cors");
+const cors = require("cors");
 
 // run our app with express framework
 const app = express();
@@ -54,28 +54,12 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // use CORS
 // app.use(cors());
-// app.use(
-//   cors({
-//     origin: "https://heroku-react-users-app.herokuapp.com/api",
-//     credentials: true
-//   })
-// );
-
-//acts as a middleware
-//to handle CORS Errors
-app.use((req, res, next) => {
-  //doesn't send response just adjusts it
-  res.header("Access-Control-Allow-Origin", "*"); //* to give access to any origin
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept, Authorization" //to give access to all the headers provided
-  );
-  if (req.method === "OPTIONS") {
-    res.header("Access-Control-Allow-Methods", "PUT, POST, PATCH, DELETE, GET"); //to give access to all the methods provided
-    return res.status(200).json({});
-  }
-  next(); //so that other routes can take over
-});
+app.use(
+  cors({
+    origin: "https://heroku-react-users-app.herokuapp.com/api",
+    credentials: true
+  })
+);
 
 // using our routes
 app.use("/api/users", usersRouter);
