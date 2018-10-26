@@ -12,7 +12,7 @@ const logger = require("morgan");
 const usersRouter = require("./routes/user");
 const userAuthRoutes = require("./routes/userAuth");
 
-const cors = require("cors");
+// const cors = require("cors");
 
 // run our app with express framework
 const app = express();
@@ -54,12 +54,12 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // use CORS
 // app.use(cors());
-app.use(
-  cors({
-    origin: "https://heroku-react-users-app.herokuapp.com/api",
-    credentials: true
-  })
-);
+// app.use(
+//   cors({
+//     origin: "https://heroku-react-users-app.herokuapp.com/api",
+//     credentials: true
+//   })
+// );
 
 //acts as a middleware
 //to handle CORS Errors
