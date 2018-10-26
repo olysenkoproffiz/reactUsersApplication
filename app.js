@@ -56,7 +56,7 @@ app.use(express.static(path.join(__dirname, "public")));
 // app.use(cors());
 app.use(
   cors({
-    origin: "https://heroku-react-users-app.herokuapp.com/api",
+    origin: "https://heroku-react-users-app.herokuapp.com",
     credentials: true
   })
 );
