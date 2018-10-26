@@ -1,6 +1,3 @@
-// "start": "node ./bin/www"
-// paste to package.json file
-
 const createError = require("http-errors");
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -29,8 +26,6 @@ app.set("view engine", "jade");
 
 // Set up mongoose connection
 const mongoose = require("mongoose");
-// let dev_db_url = "mongodb://olexii1:olexii1@ds219983.mlab.com:19983/users";
-// const mongoDB = process.env.MONGODB_URI || dev_db_url;
 mongoose.connect(
   `mongodb://olysenko:oganyan1501@clusterreactusersapi-shard-00-00-havry.mongodb.net:27017,clusterreactusersapi-shard-00-01-havry.mongodb.net:27017,clusterreactusersapi-shard-00-02-havry.mongodb.net:27017/test?ssl=true&replicaSet=ClusterReactUsersAPI-shard-0&authSource=admin&retryWrites=true`,
   { useNewUrlParser: true }
@@ -53,13 +48,13 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 // use CORS
-// app.use(cors());
-app.use(
-  cors({
-    origin: "https://heroku-react-users-app.herokuapp.com/api",
-    credentials: true
-  })
-);
+app.use(cors());
+// app.use(
+//   cors({
+//     origin: "https://heroku-react-users-app.herokuapp.com/api",
+//     credentials: true
+//   })
+// );
 
 // using our routes
 app.use("/api/users", usersRouter);
